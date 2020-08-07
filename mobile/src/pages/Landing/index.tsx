@@ -27,8 +27,7 @@ const Landing = () => {
     }
 
     useEffect(() => {
-        console.log('Landing');
-        
+       
         api.get('/connections')
             .then(response => {
                 const { total } = response.data;

@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { ScrollView, TextInput, BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-community/async-storage';
+import RNPickerSelect from 'react-native-picker-select';
 
 import PageHeader from '../../components/PageHeader';
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
@@ -65,24 +66,79 @@ const TeacherList = () => {
                 {isFiltersVisible && (
                     <View style={styles.searchForm}>
                         <Text style={styles.label}>Matéria</Text>
-                        <TextInput 
+                        {/* <TextInput 
                             value={subject} 
                             onChangeText={text => setSubject(text)} 
                             style={styles.input} 
                             placeholder="Qual a matéria?"  
                             placeholderTextColor="#c1bccc" 
+                        /> */}
+
+                        {/* <DropDownPicker
+                            items={[
+                                { label: 'Ciências', value: 'Ciências' },
+                                { label: 'Português', value: 'Português' },
+                                { label: 'Matemática', value: 'Matemática' },
+                                { label: 'Química', value: 'Química' },
+                                { label: 'História', value: 'História' },
+                                { label: 'Geografia', value: 'Geografia' },
+                            ]}
+                            defaultValue={subject}
+                            containerStyle={{height: 54}}
+                            style={{backgroundColor: '#fafafa'}}
+                            itemStyle={{ justifyContent: 'flex-start' }}
+                            dropDownStyle={{backgroundColor: '#fafafa'}}
+                            onChangeItem={item => setSubject(item.value)}
+                            placeholder="Qual a matéria?"
+                        /> */}
+
+                        <RNPickerSelect
+                            onValueChange={(value) => setSubject(value)}
+                            value={subject}
+                            placeholder={{
+                                label: 'Qual a matéria?',
+                                value: ''
+                            }}
+                            style={{ inputIOS: styles.input, inputAndroid: styles.input }}
+                            items={[
+                                { label: 'Ciências', value: 'Ciências' },
+                                { label: 'Português', value: 'Português' },
+                                { label: 'Matemática', value: 'Matemática' },
+                                { label: 'Química', value: 'Química' },
+                                { label: 'História', value: 'História' },
+                                { label: 'Geografia', value: 'Geografia' },
+                            ]}
                         />
                         
                         <View style={styles.inputGroup}>
 
                             <View style={styles.inputBlock}>
                                 <Text style={styles.label}>Dia da semana</Text>
-                                <TextInput 
+                                {/* <TextInput 
                                     value={week_day} 
                                     onChangeText={text => setWeekDay(text)} 
                                     style={styles.input} 
                                     placeholder="Qual o dia?" 
                                     placeholderTextColor="#c1bccc" 
+                                /> */}
+
+                                <RNPickerSelect
+                                    onValueChange={(value) => setWeekDay(value)}
+                                    value={week_day}
+                                    placeholder={{
+                                        label: 'Qual o dia?',
+                                        value: ''
+                                    }}
+                                    style={{ inputIOS: styles.input, inputAndroid: styles.input }}
+                                    items={[
+                                        { label: 'Domingo', value: '0' },
+                                        { label: 'Segunda-feira', value: '1' },
+                                        { label: 'Terça-feira', value: '2' },
+                                        { label: 'Quarta-feira', value: '3' },
+                                        { label: 'Quinta-feira', value: '4' },
+                                        { label: 'Sexta-feira', value: '5' },
+                                        { label: 'Sábado', value: '6' }
+                                    ]}
                                 />
                             </View>
 
@@ -90,12 +146,13 @@ const TeacherList = () => {
                                 <Text style={styles.label}>Horário</Text>
                                 <TextInput 
                                     value={time} 
+                                    keyboardType={"numbers-and-punctuation"}
                                     onChangeText={text => setTime(text)} 
                                     style={styles.input} 
                                     placeholder="Qual o horário?" 
                                     placeholderTextColor="#c1bccc" 
                                 />
-                            </View>                    
+                            </View>
                         </View>
 
                         <RectButton style={styles.submitButton} onPress={handleFiltersSubmit}>
