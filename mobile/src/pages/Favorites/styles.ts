@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: "#f0f0f7",
     },
-    content: {
-        flex: 1,
-        justifyContent: 'center'
+    teacherList: {
+        marginTop: -40
     }
 });
 

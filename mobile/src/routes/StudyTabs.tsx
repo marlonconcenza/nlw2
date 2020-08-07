@@ -43,7 +43,7 @@ const StudyTabs = () => {
             }}
         >
             <Screen name="TeacherList" component={TeacherList} options={{
-                tabBarLabel: 'Porffys',
+                tabBarLabel: 'Proffys',
                 tabBarIcon: ({ color, size, focused }) => {
                     return (
                         <Ionicons name="ios-easel" size={size} color={focused ? '#8257e5' : color} />
