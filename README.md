@@ -5,11 +5,14 @@
   <a href="mailto:marlon.concenza@gmail.com" target="_blank" ><img alt="Email" src="https://img.shields.io/badge/Email--%23F8952D?style=social&logo=gmail"></a>
 </p>
 
+
 ## Sobre este projeto
 
 Este projeto foi contruído durante a segunda Next Level Week da Rocketseat
 
 Proffys - Plataforma para juntar professores a alunos
+
+![Preview](https://github.com/marlonconcenza/nlw2/blob/master/.github/preview.png "Preview")
 
 ## Tecnologias utilizadas
 
